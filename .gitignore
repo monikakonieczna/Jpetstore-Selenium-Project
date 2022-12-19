@@ -1,0 +1,44 @@
+# Project specific #
+**/test-output/
+**/target/
+**/.allure/
+**/allure-results/
+**/lib/
+**/logs/
+**/.metadata/
+**/*.orig
+**/reports/
+**/.classpath
+**/.idea/*
+.idea/
+.idea/*
+**/.idea/workspace.xml
+**/*.iml
+**/.project
+**/secretData
+**/.settings/
+**/src/bin/
+~*.docx
+
+# Compiled source #
+**/*.com
+**/*.class
+**/*.dll
+**/*.exe
+**/*.o
+**/*.so
+
+# Packages #
+**/*.7z
+**/*.dmg
+**/*.gz
+**/*.iso
+**/*.jar
+**/*.rar
+**/*.tar
+**/*.zip
+
+# Logs and databases #
+**/*.log
+
+
