@@ -1,0 +1,226 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>com.jpetstore</groupId>
+    <artifactId>jpetstore-selenium-project</artifactId>
+    <version>1.0-SNAPSHOT</version>
+    <packaging>jar</packaging>
+
+    <name>TestFramework Template</name>
+    <description>This is a template for yor test project</description>
+
+    <properties>
+        <!-- Java settings -->
+        <java.version>11</java.version>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+
+        <!-- Maven settings -->
+        <maven.compiler.source>${java.version}</maven.compiler.source>
+        <maven.compiler.target>${java.version}</maven.compiler.target>
+        <maven-compiler-plugin.version>3.10.1</maven-compiler-plugin.version>
+        <maven-surefire-plugin.version>3.0.0-M7</maven-surefire-plugin.version>
+        <allure-maven.version>2.12.0</allure-maven.version>
+
+        <!-- Dependencies versions -->
+        <!-- Junit 5 -->
+        <junit.version>5.9.1</junit.version>
+        <junit-platform-suite.version>1.9.1</junit-platform-suite.version>
+        <allure-junit-platform.version>2.20.1</allure-junit-platform.version>
+        <rerunner-jupiter.version>2.1.6</rerunner-jupiter.version>
+
+        <!-- Selenium -->
+        <selenium.version>4.7.1</selenium.version>
+        <selenium-support.version>4.7.1</selenium-support.version>
+        <webdriver-manager.version>5.3.1</webdriver-manager.version>
+
+        <!-- Dependency Injection -->
+
+        <!-- Excel Data Reading  -->
+        <poi-ooxml.version>5.2.2</poi-ooxml.version>
+
+        <!-- Logger -->
+        <log4j.version>2.19.0</log4j.version>
+
+        <!-- Tests executors -->
+
+        <!-- Allure reporting -->
+        <aspectj.version>1.9.9.1</aspectj.version>
+        <allure-junit5.version>2.20.1</allure-junit5.version>
+        <allure-java-commons.version>2.20.1</allure-java-commons.version>
+        <allure-attachments.version>2.20.1</allure-attachments.version>
+
+        <!-- Surefire plugin: parallel testing -->
+        <surefire.parallel>classes</surefire.parallel>
+        <surefire.forkCount>1</surefire.forkCount>
+        <surefire.reuseForks>false</surefire.reuseForks>
+        <surefire.threadCount>10</surefire.threadCount>
+
+        <!-- Utils -->
+        <java-faker.version>1.0.2</java-faker.version>
+
+        <!-- JUnit5 Tags. Default value = SMOKE, if you want to run anything else use -Dgroup={value} -->
+        <group></group>
+    </properties>
+
+    <dependencies>
+
+
+        <!-- JUnit5 - test runner -->
+        <dependency>
+            <groupId>org.junit.jupiter</groupId>
+            <artifactId>junit-jupiter-api</artifactId>
+            <version>${junit.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.junit.platform</groupId>
+            <artifactId>junit-platform-suite-api</artifactId>
+            <version>${junit-platform-suite.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.junit.jupiter</groupId>
+            <artifactId>junit-jupiter-engine</artifactId>
+            <version>${junit.version}</version>
+        </dependency>
+
+        <!-- Selenium dependency -->
+        <dependency>
+            <groupId>org.seleniumhq.selenium</groupId>
+            <artifactId>selenium-java</artifactId>
+            <version>${selenium.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.seleniumhq.selenium</groupId>
+            <artifactId>selenium-support</artifactId>
+            <version>${selenium-support.version}</version>
+        </dependency>
+
+        <!-- Allure report for JUnit5 -->
+        <dependency>
+            <groupId>io.qameta.allure</groupId>
+            <artifactId>allure-junit5</artifactId>
+            <version>${allure-junit5.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>io.qameta.allure</groupId>
+            <artifactId>allure-java-commons</artifactId>
+            <version>${allure-junit5.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>io.qameta.allure</groupId>
+            <artifactId>allure-junit-platform</artifactId>
+            <version>${allure-junit5.version}</version>
+        </dependency>
+        <!-- JUnit 5 Extension point which rerun failed tests certain number of times -->
+        <dependency>
+            <groupId>io.github.artsok</groupId>
+            <artifactId>rerunner-jupiter</artifactId>
+            <version>${rerunner-jupiter.version}</version>
+        </dependency>
+
+
+        <!-- WebDriver Manager provides automated driver management and other helper for Selenium WebDriver in Java -->
+        <dependency>
+            <groupId>io.github.bonigarcia</groupId>
+            <artifactId>webdrivermanager</artifactId>
+            <version>${webdriver-manager.version}</version>
+        </dependency>
+
+        <!-- Fake data generator -->
+        <dependency>
+            <groupId>com.github.javafaker</groupId>
+            <artifactId>javafaker</artifactId>
+            <version>${java-faker.version}</version>
+        </dependency>
+
+        <!-- Dependencies needed for Excel Data Reading -->
+        <dependency>
+            <groupId>org.apache.poi</groupId>
+            <artifactId>poi-ooxml</artifactId>
+            <version>${poi-ooxml.version}</version>
+        </dependency>
+
+
+        <!-- Log4J -->
+        <dependency>
+            <groupId>org.apache.logging.log4j</groupId>
+            <artifactId>log4j-to-slf4j</artifactId>
+            <version>${log4j.version}</version>
+        </dependency>
+        <!-- https://mvnrepository.com/artifact/org.apache.logging.log4j/log4j-core -->
+        <dependency>
+            <groupId>org.apache.logging.log4j</groupId>
+            <artifactId>log4j-core</artifactId>
+            <version>${log4j.version}</version>
+        </dependency>
+
+    </dependencies>
+
+    <!-- Build goals/actions -->
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-surefire-plugin</artifactId>
+                <version>${maven-surefire-plugin.version}</version>
+
+                <configuration>
+
+                    <argLine>
+                        -javaagent:"${settings.localRepository}/org/aspectj/aspectjweaver/${aspectj.version}/aspectjweaver-${aspectj.version}.jar"
+                    </argLine>
+
+                    <groups>${group}</groups>
+
+                    <parallel>${surefire.parallel}</parallel>
+                    <forkCount>${surefire.forkCount}</forkCount>
+                    <reuseForks>${surefire.reuseForks}</reuseForks>
+                    <threadCount>${surefire.threadCount}</threadCount>
+
+                    <!-- Properties which can be modified from command line -->
+                    <systemPropertyVariables>
+                        <elementScreenshot>DISABLE</elementScreenshot>
+                        <browser>chrome</browser>
+                        <remote></remote>
+                        <hubUrl></hubUrl>
+                    </systemPropertyVariables>
+
+                </configuration>
+                <dependencies>
+
+                    <dependency>
+                        <groupId>org.aspectj</groupId>
+                        <artifactId>aspectjweaver</artifactId>
+                        <version>${aspectj.version}</version>
+                    </dependency>
+
+                </dependencies>
+
+            </plugin>
+            <plugin>
+                <groupId>io.qameta.allure</groupId>
+                <artifactId>allure-maven</artifactId>
+                <version>${allure-maven.version}</version>
+
+
+                <configuration>
+                    <properties>
+                        <allure.issues.tracker.pattern>######################</allure.issues.tracker.pattern>
+                        <allure.tests.management.pattern>#######################</allure.tests.management.pattern>
+                    </properties>
+                </configuration>
+
+
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>${maven-compiler-plugin.version}</version>
+                <configuration>
+                    <compilerVersion>${java.version}</compilerVersion>
+                    <testTarget>${java.version}</testTarget>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+</project>
